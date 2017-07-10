@@ -1,0 +1,68 @@
+{
+  "name": "cetver/yii2-routes-collector",
+  "description": "Routes collector",
+  "type": "yii2-extension",
+  "keywords": [
+    "yii2",
+    "extension"
+  ],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Alexandr Cetvertacov",
+      "email": "cetver@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "yiisoft/yii2": "~2.0.0"
+  },
+  "require-dev": {
+    "yiisoft/yii2-bootstrap": "~2.0.0",
+    "codeception/base": "^2.2.3",
+    "codeception/verify": "~0.3.1",
+    "codeception/specify": "~0.4.3",
+    "satooshi/php-coveralls": "^1.0",
+    "guzzlehttp/guzzle": "^6.0"
+  },
+  "config": {
+    "fxp-asset": {
+      "installer-paths": {
+        "npm-asset-library": "vendor/npm",
+        "bower-asset-library": "vendor/bower"
+      }
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "yii\\composer\\Installer::postInstall"
+    ],
+    "post-update-cmd": [
+      "yii\\composer\\Installer::postInstall"
+    ],
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postInstall"
+    ]
+  },
+  "extra": {
+    "yii\\composer\\Installer::postInstall": {
+      "setPermission": [
+        {
+          "tests/_data/runtime": "0777",
+          "tests/_data/messages": "0777",
+          "tests/_data/apps/basic/runtime": "0777",
+          "tests/_data/apps/basic/web/assets": "0777",
+          "tests/_data/apps/advanced/backend/runtime": "0777",
+          "tests/_data/apps/advanced/backend/web/assets": "0777",
+          "tests/_data/apps/advanced/frontend/runtime": "0777",
+          "tests/_data/apps/advanced/frontend/web/assets": "0777"
+        }
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "cetver\\RoutesCollector\\": ""
+    }
+  }
+}
