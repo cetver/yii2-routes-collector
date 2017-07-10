@@ -1,12 +1,21 @@
 {
   "name": "cetver/yii2-routes-collector",
-  "description": "Routes collector",
+  "description": "Routes collector for the Yii framework 2.0",
   "type": "yii2-extension",
   "keywords": [
     "yii2",
-    "extension"
+    "extension",
+    "routes",
+    "collector",
+    "parser",
+    "picker",
+    "accumulator"
   ],
   "license": "BSD-3-Clause",
+  "support": {
+    "source": "https://github.com/cetver/yii2-routes-collector",
+    "issues": "https://github.com/cetver/yii2-routes-collector/issues"
+  },
   "authors": [
     {
       "name": "Alexandr Cetvertacov",
@@ -38,9 +47,6 @@
       "yii\\composer\\Installer::postInstall"
     ],
     "post-update-cmd": [
-      "yii\\composer\\Installer::postInstall"
-    ],
-    "post-create-project-cmd": [
       "yii\\composer\\Installer::postInstall"
     ]
   },
