@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist cetver/yii2-routes-collector "*"
+composer require --prefer-dist cetver/yii2-routes-collector
 ```
 
 or add
 
 ```
-"cetver/yii2-routes-collector": "*"
+"cetver/yii2-routes-collector": "^1.0"
 ```
 
 to the require section of your `composer.json` file.
@@ -24,8 +24,3 @@ to the require section of your `composer.json` file.
 
 Usage
 -----
-
-Once the extension is installed, simply use it in your code by  :
-
-```php
-<?= \\cetver\RoutesCollector\AutoloadExample::widget(); ?>```
