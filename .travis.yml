@@ -10,9 +10,6 @@ env:
   global:
       - COMPOSER_UPDATE="--prefer-dist --no-interaction --no-progress --optimize-autoloader"
       - COMPOSER_CONFIG="--global github-oauth.github.com b7244dc99194b22416d5ce46d511ce04049b23de"
-      - DB=pgsql
-      - DB=mysql
-      - DB=sqlite
 
 # cache vendor dirs
 cache:
@@ -24,19 +21,78 @@ matrix:
   fast_finish: true
   include:
     - php: "7.4"
+      env:
+        - DB=pgsql
+        - DB=mysql
+        - DB=sqlite
+      services:
+        - postgresql
+        - mysql
+
     - php: "7.3"
+      env:
+        - DB=pgsql
+        - DB=mysql
+        - DB=sqlite
+      services:
+        - postgresql
+        - mysql
+
     - php: "7.2"
+      env:
+        - DB=pgsql
+        - DB=mysql
+        - DB=sqlite
+      services:
+        - postgresql
+        - mysql
+
     - php: "7.1"
+      env:
+        - DB=pgsql
+        - DB=mysql
+        - DB=sqlite
+      services:
+        - postgresql
+        - mysql
+
     - php: "7.0"
+      env:
+        - DB=pgsql
+        - DB=mysql
+        - DB=sqlite
+      services:
+        - postgresql
+        - mysql
+
     - php: "5.6"
+      env:
+        - DB=pgsql
+        - DB=mysql
+        - DB=sqlite
+      services:
+        - postgresql
+        - mysql
+
     - php: "5.5"
       dist: trusty
+      env:
+        - DB=pgsql
+        - DB=mysql
+        - DB=sqlite
+      services:
+        - postgresql
+        - mysql
+
     - php: "5.4"
       dist: trusty
-
-services:
-  - postgresql
-  - mysql
+      env:
+        - DB=pgsql
+        - DB=mysql
+        - DB=sqlite
+      services:
+        - postgresql
+        - mysql
 
 addons:
   hosts:
