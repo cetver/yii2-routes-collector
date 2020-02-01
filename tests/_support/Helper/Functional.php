@@ -4,7 +4,6 @@ namespace cetver\RoutesCollector\tests\Helper;
 
 use cetver\RoutesCollector\commands\RoutesController;
 use Codeception\Util\Fixtures;
-use Yii;
 use yii\console\controllers\MigrateController;
 
 class Functional extends \Codeception\Module
@@ -24,10 +23,17 @@ class Functional extends \Codeception\Module
         $this->runCommandRoutesCollect();
     }
 
+    protected function app()
+    {
+        $config = require realpath(__DIR__ . '/../../_data/apps/basic/config/web.php');
+
+        return new \yii\console\Application($config);
+    }
+
     protected function runMigrations()
     {
         $extAlias = '@cetver/RoutesCollector';
-        $controller = new MigrateController('migrate', Yii::$app, [
+        $controller = new MigrateController('migrate', $this->app(), [
             'interactive' => false,
         ]);
 
@@ -40,7 +46,7 @@ class Functional extends \Codeception\Module
 
     protected function runCommandRoutesCollect()
     {
-        $controller = new RoutesController('routes', Yii::$app, [
+        $controller = new RoutesController('routes', $this->app(), [
             'verbose' => false
         ]);
         return $controller->run('collect', [
