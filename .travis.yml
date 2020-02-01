@@ -10,9 +10,9 @@ env:
   global:
       - COMPOSER_UPDATE="--prefer-dist --no-interaction --no-progress --optimize-autoloader"
       - COMPOSER_CONFIG="--global github-oauth.github.com b7244dc99194b22416d5ce46d511ce04049b23de"
-      - DB=pgsql
-      - DB=mysql
-      - DB=sqlite
+  - DB=pgsql
+  - DB=mysql
+  - DB=sqlite
 
 # cache vendor dirs
 cache:
