@@ -17,19 +17,19 @@ cache:
     - vendor
     - $HOME/.composer/cache
 
-services:
-  - postgresql
-  - mysql
-
 matrix:
   fast_finish: true
   include:
     - php: "7.4"
       env:
         - DB=pgsql
+      services:
+        - postgresql
     - php: "7.4"
       env:
         - DB=mysql
+      services:
+        - mysql
     - php: "7.4"
       env:
         - DB=sqlite
